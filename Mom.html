@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day!</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <div class="giftMessage hidden">
+  <img src="https://svgshare.com/i/CzJ.svg" id="heartIcon">
+  <p>“To the world you are a mother, but to your family you’re the world.”</p>
+</div>
+<div class="header">
+  <div class="headerContainer">
+    <h2>To world's best mom</h2>
+    <h1>Happy Mother's Day</h1>
+  </div>
+  <div class="notification hidden">
+    <div class="giftIcon">
+      <img src="https://svgshare.com/i/D0X.svg" id="giftIconTop">
+      <img src="https://svgshare.com/i/Czz.svg" id="giftIconBottom">
+    </div>
+    <p>Oh, you got a new gift!</p>
+    <a id="openBtn">Open</a>
+  </div>
+  <div class="overlay hidden"></div>
+</div>
+    <script >
+    var overlay = document.querySelector(".overlay");
+var notification = document.querySelector(".notification");
+var openButton = document.querySelector("#openBtn");
+var notificationText = document.querySelector(".notification p");
+var notificationButton = document.querySelector(".notification a");
+var giftIcon = document.querySelector(".giftIcon");
+var giftIconTop = document.querySelector("#giftIconTop");
+var giftMessage = document.querySelector(".giftMessage");
+
+setTimeout(() => {
+  notification.classList.remove("hidden");
+}, 3500);
+
+openBtn.addEventListener("click", async function() {
+  // When button is clicked
+  notificationText.classList.add("hidden");
+  notificationButton.classList.add("hidden");
+  await delay(100);
+  notification.classList.add("animate");
+  giftIcon.classList.add("animate");
+  
+  await delay(500);
+ 
+  giftIconTop.classList.add("open");
+    
+  await delay(100);
+  
+  overlay.classList.remove("hidden");
+  
+  await delay(200);
+  
+  giftMessage.classList.remove("hidden");
+});
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+    </script>
+</body>
+</html>
